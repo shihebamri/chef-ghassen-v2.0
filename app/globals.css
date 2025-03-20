@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 39 17% 90%;
+    --foreground: 0 0% 16%;
+
+    --card: 39 17% 90%;
+    --card-foreground: 0 0% 16%;
+
+    --popover: 39 17% 90%;
+    --popover-foreground: 0 0% 16%;
+
+    --primary: 19 21% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 16 25% 25%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 39 17% 85%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 19 21% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 19 21% 80%;
+    --input: 19 21% 80%;
+    --ring: 19 21% 45%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 16%;
+    --foreground: 39 17% 90%;
+
+    --card: 0 0% 20%;
+    --card-foreground: 39 17% 90%;
+
+    --popover: 0 0% 20%;
+    --popover-foreground: 39 17% 90%;
+
+    --primary: 19 21% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 16 25% 25%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 25%;
+    --muted-foreground: 39 17% 70%;
+
+    --accent: 19 21% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 30%;
+    --input: 0 0% 30%;
+    --ring: 19 21% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-poppins), sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-playfair), serif;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Decorative elements */
+.accent-dot {
+  @apply w-2 h-2 rounded-full bg-[#8C6A5D];
+}
+
+.accent-line {
+  @apply h-px bg-[#8C6A5D]/50;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ece7e1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8c6a5d;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4e342e;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Improve touch targets */
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Improve form elements on mobile */
+  input,
+  select,
+  textarea {
+    font-size: 1rem;
+  }
+
+  /* Optimize font sizes for mobile */
+  .text-lg {
+    font-size: 1rem;
+  }
+
+  /* Optimize spacing for mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Smooth scrolling for mobile */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent content from being hidden under the sticky footer */
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Optimize images for mobile */
+img {
+  @apply max-w-full h-auto;
+}
+
+/* Improve mobile scrolling experience */
+.smooth-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Mobile-friendly dialog */
+[role="dialog"] {
+  @apply max-h-[90vh] overflow-auto;
+}
+
+/* Mobile swipe animations */
+@keyframes swipe-hint {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.swipe-hint {
+  animation: swipe-hint 2s ease-in-out infinite;
+}
+
+/* Optimize for notched phones */
+.safe-area-padding {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-top: env(safe-area-inset-top);
+}
+
